@@ -1,0 +1,50 @@
+.btn {
+    border-radius: 8px;
+    height: 48px;
+    flex: 1;
+    border: none;
+    font-weight: 500;
+}
+.btn_start {
+    background-color: #005ae5;
+    &:hover {
+        opacity: 0.8;
+    }
+
+}
+
+
+.btn_reset {
+    background-color: #da6073;
+}
+.btn_stop {
+    background-color: #d4a644;
+}
+.btn_delete {
+    border: 1px solid #da6073;
+    color: #da6073;
+    &:hover {
+        color: #000;
+        background-color: #da6073;
+    }
+}
+
+
+.btn_export {
+    border: 1px solid #26b8a6;
+    color: #26b8a6;
+    &:hover {
+        color: #000;
+        background-color: #26b8a6;
+    }
+}
+
+.btn_back {
+    background-color: #ffdc2e;
+}
+
+body[data-theme="dark"] {
+    .btn_start {
+        background-color: #2fa4d8;
+    }
+}

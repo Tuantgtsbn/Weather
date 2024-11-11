@@ -1,0 +1,23 @@
+.container {
+    display: flex;
+}
+
+.countryCode {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+}
+.right{
+    margin-left: 12px;
+    &:hover {
+        cursor: pointer;
+        text-decoration: underline;
+    }
+}
+.city{
+    font-size: 18px;
+    font-weight: 700;
+}
+.time {
+    color: #a3aebf;
+}

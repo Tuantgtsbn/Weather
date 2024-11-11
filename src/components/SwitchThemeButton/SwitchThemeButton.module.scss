@@ -1,0 +1,28 @@
+.button {
+    border: none;
+    height:100%;
+    padding: 0 16px;
+    border-radius: 12px;
+    background-color: transparent;
+    // padding: 0 8px;
+    &:hover {
+        cursor: pointer;
+        background-color: #cdd6e1;
+    }
+    svg {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+body[data-theme='dark'] {
+    .button {
+        color: #fff;
+        &:hover {
+            background-color: #2d2f36;
+        }
+        svg {
+            color: var(--dark-primary-color);
+        }
+    }
+}

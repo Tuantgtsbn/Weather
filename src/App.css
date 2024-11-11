@@ -1,0 +1,28 @@
+@import 'normalize.css';
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+:root {
+    font-size: 16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --dark-primary-color: #c8cbd0;
+    --dark-primary-bg-color: #06080f;
+    --light--primary-bg-color: #f2f7ff;
+    transform: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+body[data-theme="light"] {
+    background-color: var(--light--primary-bg-color) !important;
+}
+body[data-theme="dark"] {
+    background-color:var(--dark-primary-bg-color) !important;
+    color: var(--dark-primary-color) !important;
+    /* color: #fff; */
+}
+@font-face {
+    font-family: 'Digital-7';
+    src: url('../fonts/digital-7.ttf') format('truetype');
+    
+}
+
+.fa-rotate-right:hover {
+    cursor: pointer;
+}

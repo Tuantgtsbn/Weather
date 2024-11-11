@@ -1,0 +1,40 @@
+
+
+.time {
+    font-size: 10rem;
+    line-height: 10rem;
+    text-align: center;
+}
+.group_btn {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 24px;
+    gap: 1rem;
+}
+.btn {
+    border-radius: 8px;
+    height: 48px;
+    flex: 1;
+    border: none;
+    font-weight: 500;
+}
+.btn_start {
+    background-color: #005ae5;
+    &:hover {
+        opacity: 0.8;
+    }
+
+}
+
+.btn_reset {
+    background-color: #da6073;
+}
+.btn_stop {
+    background-color: #d4a644;
+}
+
+body[data-theme="dark"] {
+    .btn_start {
+        background-color: #2fa4d8;
+    }
+}
