@@ -20,7 +20,11 @@ function Weather() {
     const [dataDaily, setDataDaily] = useState(null);
     const [dataCurrent, setDataCurrent] = useState(null);
     const searchRef = useRef(null);
-    const callApi = useCallback(() => {
+    console.log("Data Current",dataCurrent);
+    console.log("Data Hour ",dataHour);
+    console.log("Data Daily",dataDaily);
+    console.log("Search", search);
+    const callApi = () => {
         fetch(`https://api.opencagedata.com/geocode/v1/json?q=${search}&key=a98acee141024ac1872f6fb2fb4c9cb1&lang=vi`)
             .then((response)=>response.json())
             .then((data) => {
@@ -44,11 +48,12 @@ function Weather() {
             }).catch ((error) => {  
                 console.error('Error:', error);
             });
-    },[search]);
+    }
+
     useEffect(() => {
         document.title = 'Thời tiết';
         callApi();
-    }, [search,callApi]);
+    }, [search]);
     const changeCity = () => {
         var inputValue = searchRef.current.value;
         inputValue = inputValue.trim();
