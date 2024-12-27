@@ -1,6 +1,15 @@
+@use '../assets/styles/variables.module' as v;
 
+.app {
+  color: v.$light-primary-text-color;
+  min-height: 100vh;
+  background-color: v.$light-primary-bg-color;
+}
+.dark {
+  color: v.$dark-primary-text-color;
+  background-color: v.$dark-primary-bg-color;
+}
 .content {
-    width: 900px;
-    margin : 0 auto;
-    padding: 20px;
+  margin: 0 auto;
+  padding: 20px;
 }

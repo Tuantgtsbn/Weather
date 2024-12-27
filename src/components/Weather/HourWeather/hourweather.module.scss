@@ -1,20 +1,25 @@
 .content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: #eef1f8;
-    border-radius: 10px;
-    .hour {
-        font-size: 20px;
-        color: #80828e;
-    }
-    img {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #eef1f8;
+  border-radius: 10px;
+  .hour {
+    font-size: 20px;
+    color: #80828e;
+  }
 
-    }
-    .temperature {
-        font-size: 20px;
-        font-weight: bold;
-    }
-
+  .temperature {
+    font-size: 20px;
+    font-weight: bold;
+  }
+}
+body[data-theme='dark'] {
+  .content {
+    background-color: transparent;
+  }
+  .hour {
+    color: #fff;
+  }
 }

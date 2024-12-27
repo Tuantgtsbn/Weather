@@ -1,6 +1,22 @@
 .content {
-    width: 45%;
-    background-color: #eef1f8;
-    border-radius: 10px;
-    padding: 8px 16px;
+  width: 45%;
+  background-color: #eef1f8;
+  border-radius: 10px;
+  padding: 8px 16px;
+}
+.wrapper_value {
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+}
+.value {
+  margin: 0px;
+}
+.icon {
+  margin-left: 10px;
+}
+body[data-theme='dark'] {
+  .content {
+    background-color: #7e83b2;
+  }
 }

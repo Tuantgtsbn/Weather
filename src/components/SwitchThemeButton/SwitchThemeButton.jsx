@@ -5,11 +5,16 @@ import { faSun, faMoon } from '@fortawesome/free-regular-svg-icons';
 import classNames from 'classnames/bind';
 const cx = classNames.bind(styles);
 function SwitchThemeButton() {
-    const [theme, toggleTheme] = useTheme();
-    return (
-        <button className={cx('button')} onClick={toggleTheme}>
-            <FontAwesomeIcon icon={theme === 'light' ? faSun : faMoon} />
-        </button>
-    )
+  const [theme, toggleTheme] = useTheme();
+  return (
+    <button
+      className={cx('button', {
+        dark: theme === 'dark'
+      })}
+      onClick={toggleTheme}
+    >
+      <FontAwesomeIcon icon={theme === 'light' ? faSun : faMoon} />
+    </button>
+  );
 }
 export default SwitchThemeButton;
