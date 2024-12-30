@@ -18,9 +18,19 @@
 .list_data {
   margin-top: 24px;
 }
-
+.circle {
+  width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
 @media screen and (max-width: 767px) {
   .time {
     font-size: 80px;
+  }
+  .circle {
+    width: 80%;
+    .circle_title {
+      font-size: 20px;
+    }
   }
 }

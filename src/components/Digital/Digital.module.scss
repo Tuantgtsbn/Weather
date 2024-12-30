@@ -1,8 +1,14 @@
 @font-face {
-    font-family: 'Digital-7';
-    src: url('../../assets/fonts/digital-7.regular.ttf') format('truetype');
+  font-family: 'Digital-7';
+  src: url('../../assets/fonts/digital-7.regular.ttf') format('truetype');
 }
 .led-digital {
-    font-family: 'Digital-7';
-    font-size: 10rem;
+  font-family: 'Digital-7';
+  font-size: 8rem;
+}
+
+@media screen and (max-width: 768px) {
+  .led-digital {
+    font-size: 3rem;
+  }
 }
