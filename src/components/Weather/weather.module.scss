@@ -1,175 +1,176 @@
 .content {
-  color: #000;
-  display: grid;
-  grid-template-columns: repeat(10, 1fr);
-  grid-template-rows: 50px, repeat(10, 1fr);
-  gap: 16px;
-  padding: 20px;
-  border-radius: 20px;
-  border: 1px solid transparent;
+    color: #000;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: 50px, repeat(10, 1fr);
+    gap: 16px;
+    padding: 20px;
+    border-radius: 20px;
+    border: 1px solid transparent;
 }
 .input {
-  grid-column: span 6 / span 6;
-  display: flex;
-  input {
-    padding: 5px 10px;
-    flex: 2;
-    border-radius: 5px;
-    background: #dee2f9;
-    border: none;
-  }
-  button {
-    margin-left: 10px;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    &:hover {
-      background: #ccc;
+    grid-column: span 6 / span 6;
+    display: flex;
+    input {
+        padding: 5px 10px;
+        flex: 2;
+        border-radius: 5px;
+        background: #dee2f9;
+        border: none;
     }
-  }
+    button {
+        margin-left: 10px;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 5px;
+        &:hover {
+            background: #ccc;
+        }
+    }
 }
 .currentweather {
-  grid-column: span 6 / span 6;
-  grid-row: span 3 / span 3;
-  grid-column-start: 1;
-  grid-row-start: 2;
-  display: flex;
-  .left {
-    flex: 3;
-    .city {
-      font-size: 40px;
-      font-weight: bold;
+    grid-column: span 6 / span 6;
+    grid-row: span 3 / span 3;
+    grid-column-start: 1;
+    grid-row-start: 2;
+    display: flex;
+    .left {
+        flex: 3;
+        .city {
+            font-size: 40px;
+            font-weight: bold;
+        }
+        .temperature {
+            font-size: 60px;
+            font-weight: bold;
+        }
+        .lastUpdated {
+            display: inline-block;
+            margin-right: 10px;
+            font-weight: bold;
+        }
     }
-    .temperature {
-      font-size: 60px;
-      font-weight: bold;
-    }
-    .lastUpdated {
-      display: inline-block;
-      margin-right: 10px;
-      font-weight: bold;
-    }
-  }
-  .right {
-    flex: 2;
-    position: relative;
-    img {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
+    .right {
+        flex: 2;
+        position: relative;
+        img {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
 
-      width: 80%;
+            width: 80%;
+        }
     }
-  }
 }
 .hourweather {
-  grid-column: span 6 / span 6;
-  grid-row: span 3 / span 3;
-  grid-row-start: 5;
-  background-color: #dee2f9;
-  border-radius: 10px;
-  padding: 16px;
-  .listhourweather {
-    display: flex;
-    flex-direction: row;
-    overflow-x: auto;
-    gap: 25px;
+    grid-column: span 6 / span 6;
+    grid-row: span 3 / span 3;
+    grid-row-start: 5;
+    background-color: #dee2f9;
+    border-radius: 10px;
+    padding: 16px;
+    .listhourweather {
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto;
+        gap: 25px;
 
-    background: transparent;
-    &::-webkit-scrollbar {
-      display: none;
+        background: transparent;
+        &::-webkit-scrollbar {
+            display: none;
+        }
     }
-  }
 }
 .attributes {
-  grid-column: span 6 / span 6;
-  grid-row: span 4 / span 4;
-  grid-row-start: 8;
-  background-color: #dee2f9;
-  border-radius: 10px;
-  padding: 16px;
-  .listAttributes {
-    display: flex;
-    justify-content: space-between;
-    // justify-content: start;
-    align-items: center;
-    flex-direction: row;
-    gap: 14px;
-    background: #dee2f9;
-    flex-wrap: wrap;
-    align-items: stretch;
-  }
+    grid-column: span 6 / span 6;
+    grid-row: span 4 / span 4;
+    grid-row-start: 8;
+    background-color: #dee2f9;
+    border-radius: 10px;
+    padding: 16px;
+    .listAttributes {
+        display: flex;
+        justify-content: space-between;
+        // justify-content: start;
+        align-items: center;
+        flex-direction: row;
+        gap: 14px;
+        background: #dee2f9;
+        flex-wrap: wrap;
+        align-items: stretch;
+    }
 }
 
 .dailyweather {
-  grid-column: span 4 / span 4;
-  grid-row: span 10 / span 10;
-  grid-column-start: 7;
-  grid-row-start: 2;
-  display: flex;
-  flex-direction: column;
-  background-color: #dee2f9;
-  border-radius: 10px;
-  padding: 16px;
-  .listdailyweather {
-    flex: 1;
+    grid-column: span 4 / span 4;
+    grid-row: span 10 / span 10;
+    grid-column-start: 7;
+    grid-row-start: 2;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-  }
+    background-color: #dee2f9;
+    border-radius: 10px;
+    padding: 16px;
+    .listdailyweather {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
 }
 
 .text {
-  font-size: 20px;
-  color: #80828e;
+    font-size: 20px;
+    color: #80828e;
+    font-weight: bold;
 }
 
 .reload {
-  display: inline-block;
+    display: inline-block;
 }
 
 body[data-theme='dark'] {
-  .content {
-    color: #fff;
-    background-color: #3c4473;
-  }
-  .input {
-    input {
-      background-color: #63678c;
-      color: #fff;
+    .content {
+        color: #fff;
+        background-color: #3c4473;
     }
-  }
-  .hourweather,
-  .attributes,
-  .dailyweather {
-    background-color: #7e83b2;
-  }
-  .text {
-    color: #fff;
-  }
-  .listAttributes {
-    background-color: transparent;
-  }
+    .input {
+        input {
+            background-color: #63678c;
+            color: #fff;
+        }
+    }
+    .hourweather,
+    .attributes,
+    .dailyweather {
+        background-color: #7e83b2;
+    }
+    .text {
+        color: #fff;
+    }
+    .listAttributes {
+        background-color: transparent;
+    }
 }
 
 @media screen and (max-width: 767px) {
-  .content {
-    display: flex;
-    flex-direction: column;
-    .input {
-      order: 0;
+    .content {
+        display: flex;
+        flex-direction: column;
+        .input {
+            order: 0;
+        }
+        .currentweather {
+            order: 1;
+        }
+        .hourweather {
+            order: 2;
+        }
+        .dailyweather {
+            order: 3;
+        }
+        .attributes {
+            order: 4;
+        }
     }
-    .currentweather {
-      order: 1;
-    }
-    .hourweather {
-      order: 2;
-    }
-    .dailyweather {
-      order: 3;
-    }
-    .attributes {
-      order: 4;
-    }
-  }
 }
