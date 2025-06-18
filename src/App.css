@@ -1,15 +1,12 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 :root {
-  font-size: 16px;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  transform: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    font-size: 16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transform:
+        color 0.3s ease-in-out,
+        background-color 0.3s ease-in-out;
 }
 
 @font-face {
-  font-family: "Digital-7";
-  src: url("../fonts/digital-7.ttf") format("truetype");
+    font-family: 'Digital-7';
+    src: url('../fonts/digital-7.ttf') format('truetype');
 }

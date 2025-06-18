@@ -6,6 +6,7 @@ const Clock = lazy(() => import('../components/Clock/Clock'));
 const Weather = lazy(() => import('../components/Weather'));
 const Calculator = lazy(() => import('../pages/calculator'));
 const Currency = lazy(() => import('../pages/currency'));
+const Caro = lazy(() => import('../pages/Caro'));
 const publicRoutes = [
     {
         path: '/timer',
@@ -42,6 +43,12 @@ const publicRoutes = [
         component: Currency,
         layout: DefaultLayout,
         title: 'Tỷ giá tiền tệ'
+    },
+    {
+        path: '/caro',
+        component: Caro,
+        layout: DefaultLayout,
+        title: 'Trò chơi caro'
     }
 ];
 const privateRoutes = [];

@@ -14,7 +14,8 @@ function Header({ title }) {
             { label: 'Đồng hồ thế giới', path: '/clock' },
             { label: 'Thời tiết', path: '/weather' },
             { label: 'Máy tính cầm tay', path: '/calculator' },
-            { label: 'Tỷ giá tiền tệ', path: '/currency' }
+            { label: 'Tỷ giá tiền tệ', path: '/currency' },
+            { label: 'Trò chơi Caro', path: '/caro' }
         ],
         []
     );
