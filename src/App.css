@@ -10,3 +10,8 @@
     font-family: 'Digital-7';
     src: url('../fonts/digital-7.ttf') format('truetype');
 }
+
+div {
+    scrollbar-width: none; /* Ẩn thanh scroll */
+    -ms-overflow-style: none; /* Dành cho IE và Edge cũ hơn */
+}

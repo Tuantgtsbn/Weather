@@ -6,7 +6,6 @@ import {
     Dialog,
     DialogClose,
     DialogContent,
-    DialogDescription,
     DialogFooter,
     DialogHeader,
     DialogTitle,
@@ -18,7 +17,6 @@ import {
     SelectContent,
     SelectGroup,
     SelectItem,
-    SelectLabel,
     SelectTrigger,
     SelectValue
 } from '@/components/ui/select';
@@ -124,7 +122,10 @@ function Caro() {
             )}
             {screen === 'game' && (
                 <>
-                    <Button className='self-start mb-4 bg-gray-500' onClick={handleBackToMenu}>
+                    <Button
+                        className='mb-4 bg-gray-500 self-end dark:bg-red-500'
+                        onClick={handleBackToMenu}
+                    >
                         Quay lại menu
                     </Button>
                     <GameCaro typeGame={typeGame} sizeBoard={Number(sizeBoard)} />
