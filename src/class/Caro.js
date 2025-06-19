@@ -168,111 +168,137 @@ class Caro {
         return true;
     }
     // Hàm đánh giá cho AI
-    checkHorizontal(x, y, value) {
-        let count = 0;
-        for (let j = Math.max(0, y - 4); j <= Math.min(this.width - 1, y + 4); j++) {
-            if (this.board[x][j] === value) count++;
-            else count = 0;
-            if (count >= 5) return count;
+    checkHorizontalAI(x, y, value) {
+        if (this.board[x][y] !== '') return 0;
+
+        let count = 1;
+        let j = y + 1;
+        while (j < this.width && this.board[x][j] === value) {
+            count++;
+            j++;
         }
-        return Math.min(count, 4);
+
+        j = y - 1;
+        while (j >= 0 && this.board[x][j] === value) {
+            count++;
+            j--;
+        }
+
+        return count;
     }
 
-    checkVertical(x, y, value) {
-        let count = 0;
-        for (let i = Math.max(0, x - 4); i <= Math.min(this.height - 1, x + 4); i++) {
-            if (this.board[i][y] === value) count++;
-            else count = 0;
-            if (count >= 5) return count;
+    checkVerticalAI(x, y, value) {
+        if (this.board[x][y] !== '') return 0;
+
+        let count = 1;
+        let i = x + 1;
+        while (i < this.height && this.board[i][y] === value) {
+            count++;
+            i++;
         }
-        return Math.min(count, 4);
+
+        i = x - 1;
+        while (i >= 0 && this.board[i][y] === value) {
+            count++;
+            i--;
+        }
+
+        return count;
     }
 
     checkRightDiagonalAI(x, y, value) {
-        let count = 0;
-        let i = Math.max(0, x - 4);
-        let j = Math.max(0, y - 4);
-        while (i <= Math.min(this.height - 1, x + 4) && j <= Math.min(this.width - 1, y + 4)) {
-            if (this.board[i][j] === value) count++;
-            else count = 0;
-            if (count >= 5) return count;
+        if (this.board[x][y] !== '') return 0;
+
+        let count = 1;
+        let i = x + 1;
+        let j = y + 1;
+        while (i < this.height && j < this.width && this.board[i][j] === value) {
+            count++;
             i++;
             j++;
         }
-        return Math.min(count, 4);
+
+        i = x - 1;
+        j = y - 1;
+        while (i >= 0 && j >= 0 && this.board[i][j] === value) {
+            count++;
+            i--;
+            j--;
+        }
+
+        return count;
     }
 
     checkLeftDiagonalAI(x, y, value) {
-        let count = 0;
-        let i = Math.max(0, x - 4);
-        let j = Math.min(this.width - 1, y + 4);
-        while (i <= Math.min(this.height - 1, x + 4) && j >= Math.max(0, y - 4)) {
-            if (this.board[i][j] === value) count++;
-            else count = 0;
-            if (count >= 5) return count;
+        if (this.board[x][y] !== '') return 0;
+
+        let count = 1;
+        let i = x + 1;
+        let j = y - 1;
+        while (i < this.height && j >= 0 && this.board[i][j] === value) {
+            count++;
             i++;
             j--;
         }
-        return Math.min(count, 4);
+
+        i = x - 1;
+        j = y + 1;
+        while (i >= 0 && j < this.width && this.board[i][j] === value) {
+            count++;
+            i--;
+            j++;
+        }
+
+        return count;
     }
     // make Move
     async makeMove(x, y) {
-        if (!this.checkValid(x, y)) {
-            return false;
-        }
-
-        // Lưu nước đi của người chơi
-        this.lastMove = { x, y };
-        this.board[x][y] = this.player;
-
-        // Kiểm tra thắng/hòa sau nước đi của người chơi
-        if (this.checkWin(x, y)) {
-            this.winner = this.player;
-            return 'WIN';
-        }
-
-        if (this.checkDraw()) {
-            this.draw = true;
-            return 'DRAW';
-        }
-
-        // Xử lý theo chế độ chơi
         if (this.typeGame === '1vs1') {
-            this.player = this.player === 'X' ? 'O' : 'X';
-            return true;
-        } else if (this.typeGame === '1vsCPU') {
-            // Chuyển lượt cho máy
-            this.player = this.computer;
-
-            // Tính toán nước đi của máy
-            const computerMove = this.getPointsComputer();
-            if (!computerMove) return true;
-
-            // Đợi một chút để tạo cảm giác máy đang suy nghĩ
-            await delay(500);
-
-            // Thực hiện nước đi của máy
-            const [i, j] = computerMove;
-            this.lastMove = { x: i, y: j };
-            this.board[i][j] = this.computer;
-
-            // Kiểm tra thắng/hòa sau nước đi của máy
-            if (this.checkWin(i, j)) {
-                this.winner = this.computer;
+            if (!this.checkValid(x, y)) return false;
+            this.board[x][y] = this.player;
+            this.lastMove = { x, y };
+            if (this.checkWin(x, y)) {
+                this.winner = this.player;
                 return 'WIN';
             }
-
             if (this.checkDraw()) {
                 this.draw = true;
                 return 'DRAW';
             }
-
-            // Chuyển lượt lại cho người chơi
-            this.player = this.human;
-            return 'COMPUTER_MOVED';
+            this.player = this.player === 'X' ? 'O' : 'X';
+            return null;
+        } else if (this.typeGame === '1vsCPU') {
+            if (this.player === this.human) {
+                if (!this.checkValid(x, y)) return false;
+                this.board[x][y] = this.player;
+                this.lastMove = { x, y };
+                if (this.checkWin(x, y)) {
+                    this.winner = this.player;
+                    return 'WIN';
+                }
+                if (this.checkDraw()) {
+                    this.draw = true;
+                    return 'DRAW';
+                }
+                this.player = this.computer;
+                return null;
+            } else if (this.player === this.computer) {
+                await delay(2000);
+                const [i, j] = this.getPointsComputer();
+                this.board[i][j] = this.player;
+                this.lastMove = { x: i, y: j };
+                if (this.checkWin(i, j)) {
+                    this.winner = this.player;
+                    return 'WIN';
+                }
+                if (this.checkDraw()) {
+                    this.draw = true;
+                    return 'DRAW';
+                }
+                this.player = this.human;
+                return null;
+            }
         }
-
-        return true;
     }
     //reset Game
     resetGame() {
@@ -286,9 +312,6 @@ class Caro {
         if (this.typeGame === '1vsCPU') {
             this.computer = this.computer === 'X' ? 'O' : 'X';
             this.human = this.human === 'X' ? 'O' : 'X';
-        } else {
-            this.human = 'X';
-            this.computer = 'O';
         }
     }
     // Get point by computer
@@ -303,16 +326,16 @@ class Caro {
                     let score =
                         MAP_SCORE_COMPUTER.get(
                             Math.max(
-                                this.checkHorizontal(i, j, this.computer),
-                                this.checkVertical(i, j, this.computer),
+                                this.checkHorizontalAI(i, j, this.computer),
+                                this.checkVerticalAI(i, j, this.computer),
                                 this.checkRightDiagonalAI(i, j, this.computer),
                                 this.checkLeftDiagonalAI(i, j, this.computer)
                             )
                         ) +
                         MAP_POINT_HUMAN.get(
                             Math.max(
-                                this.checkHorizontal(i, j, this.human),
-                                this.checkVertical(i, j, this.human),
+                                this.checkHorizontalAI(i, j, this.human),
+                                this.checkVerticalAI(i, j, this.human),
                                 this.checkRightDiagonalAI(i, j, this.human),
                                 this.checkLeftDiagonalAI(i, j, this.human)
                             ) - 1

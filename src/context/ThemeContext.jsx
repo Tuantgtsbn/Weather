@@ -21,18 +21,16 @@ const ThemeProvider = ({ children }) => {
     const toggleTheme = () => {
         if (theme === 'light') {
             localStorage.setItem('theme', 'dark');
+            document.body.classList.add('dark');
             setTheme('dark');
         } else {
             localStorage.setItem('theme', 'light');
+            document.body.classList.remove('dark');
             setTheme('light');
         }
     };
 
-    return (
-        <ThemeContext.Provider value={[ theme, toggleTheme ]}>
-            {children}
-        </ThemeContext.Provider>
-    );
+    return <ThemeContext.Provider value={[theme, toggleTheme]}>{children}</ThemeContext.Provider>;
 };
 
 export { ThemeProvider, ThemeContext };

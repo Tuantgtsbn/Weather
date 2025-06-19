@@ -1,6 +1,4 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMagnifyingGlass, faRotateRight } from '@fortawesome/free-solid-svg-icons';
+import { useState, useEffect, useRef } from 'react';
 import HourWeather from './HourWeather/HourWeather';
 import Attribute from './Attribute/Attribute';
 import DailyWeather from './DailyWeather/DailyWeather';
@@ -9,40 +7,33 @@ import classNames from 'classnames/bind';
 const cx = classNames.bind(styles);
 import Time from '../../utils/changeTimeUTC';
 import NumberFormat from '../../utils/formatNumber';
-import {
-    faTemperatureHalf,
-    faWind,
-    faDroplet,
-    faCloudRain,
-    faSun,
-    faEye
-} from '@fortawesome/free-solid-svg-icons';
+import { Thermometer, Wind, Droplet, CloudHail, Sun, Eye, Search, RotateCw } from 'lucide-react';
 // import {faSun,faEye} from '@fortawesome/free-regular-svg-icons';
 function Weather() {
     const arrTitles = [
         {
             title: 'Temperature',
-            icon: faTemperatureHalf
+            icon: Thermometer
         },
         {
             title: 'Wind',
-            icon: faWind
+            icon: Wind
         },
         {
             title: 'Humidity',
-            icon: faDroplet
+            icon: Droplet
         },
         {
             title: 'UV Index',
-            icon: faSun
+            icon: Sun
         },
         {
             title: 'Visibility',
-            icon: faEye
+            icon: Eye
         },
         {
             title: 'Chance of Rain',
-            icon: faCloudRain
+            icon: CloudHail
         }
     ];
     const [search, setSearch] = useState('Hà Đông');
@@ -106,7 +97,7 @@ function Weather() {
                     placeholder='Search cities'
                 />
                 <button onClick={changeCity}>
-                    <FontAwesomeIcon icon={faMagnifyingGlass} />
+                    <Search />
                 </button>
             </div>
             {dataCurrent ? (
@@ -121,7 +112,7 @@ function Weather() {
                             {new Time(dataCurrent.time).getHourMinute()}
                         </p>
                         <div onClick={callApi} className={cx('reload')}>
-                            <FontAwesomeIcon icon={faRotateRight} />
+                            <RotateCw />
                         </div>
                     </div>
                     <div className={cx('right')}>

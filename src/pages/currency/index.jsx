@@ -1,16 +1,15 @@
-import { useEffect, useMemo, useState, React, useRef } from 'react';
+import { useEffect, useMemo, useState, useRef } from 'react';
 import GoldImage from '../../assets/images/gold.png';
 import MoneyImage from '../../assets/images/money.png';
 import Exchange from '../../assets/images/exchange.png';
 import classNames from 'classnames';
 import styles from './Currency.module.scss';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faRotateRight } from '@fortawesome/free-solid-svg-icons';
 import axiosCurrency from '../../api/axiosCurrency';
 import axiosGold from '../../api/axiosGold';
 // import Table from '../../components/Currency/Table/Table';
 import { formatBigNumber } from '../../utils/formatNumber';
 import ExchangeCurrency from '../../components/Currency/ExchangeCurrency/ExchangeCurrency';
+import { RotateCw } from 'lucide-react';
 const parseDataGold = (data) => {
     console.log('data in function parse', data);
     const newArr = [];
@@ -307,12 +306,11 @@ function Currency() {
                 <p className={classNames(styles.time)}>
                     Cập nhật lúc: {nowOfGold.toLocaleString()}
                 </p>
-                <FontAwesomeIcon
+                <RotateCw
+                    className='cursor-pointer'
                     onClick={onClickRefreshGold}
-                    icon={faRotateRight}
                     width={20}
                     height={20}
-                    style={{ cursor: 'pointer' }}
                 />
             </div>
             <div className={classNames(styles.tableContainer)}>
@@ -385,12 +383,11 @@ function Currency() {
                 <p className={classNames(styles.time)}>
                     Cập nhật lúc: {nowOfGold.toLocaleString()}
                 </p>
-                <FontAwesomeIcon
+                <RotateCw
+                    className='cursor-pointer'
                     onClick={onClickRefreshCurrency}
-                    icon={faRotateRight}
                     width={20}
                     height={20}
-                    style={{ cursor: 'pointer' }}
                 />
             </div>
             <div className={classNames(styles.tableContainer)}>

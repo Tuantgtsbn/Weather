@@ -7,7 +7,7 @@ const cx = classNames.bind(styles);
 function Attribute({ data, attr }) {
     let field = '';
     let value = '';
-    const { title, icon } = attr;
+    const { title, icon: Icon } = attr;
     switch (title) {
         case 'Temperature':
             field = 'Real Feel';
@@ -45,7 +45,7 @@ function Attribute({ data, attr }) {
             <h3 className={cx('field')}>{values.field}</h3>
             <div className={cx('wrapper_value')}>
                 <p className={cx('value')}>{values.value}</p>
-                <FontAwesomeIcon icon={icon} className={cx('icon')} />
+                {<Icon className={cx('icon')} />}
             </div>
         </div>
     );
