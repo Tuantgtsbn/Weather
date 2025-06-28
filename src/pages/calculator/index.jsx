@@ -1,13 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import ButtonCalculator from '../../components/Calculator/Button';
 import styles from './Calculator.module.scss';
 import classNames from 'classnames';
 import { evaluate } from 'mathjs';
 import { toast } from 'react-toastify';
 function Calculator() {
-    useEffect(() => {
-        document.title = 'Máy tính';
-    }, []);
     const onClick = (data) => {
         switch (data) {
             case 'AC':

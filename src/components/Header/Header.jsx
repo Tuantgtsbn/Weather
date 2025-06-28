@@ -15,7 +15,11 @@ function Header({ title }) {
             { label: 'Thời tiết', path: '/weather' },
             { label: 'Máy tính cầm tay', path: '/calculator' },
             { label: 'Tỷ giá tiền tệ', path: '/currency' },
-            { label: 'Trò chơi Caro', path: '/caro' }
+            { label: 'Trò chơi Caro', path: '/caro' },
+            {
+                label: 'Xoay ngẫu nhiên',
+                path: '/wheel-random'
+            }
         ],
         []
     );

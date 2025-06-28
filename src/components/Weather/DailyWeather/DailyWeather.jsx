@@ -1,10 +1,8 @@
 import Time from "../../../utils/changeTimeUTC";
-import { useState} from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames/bind";
 import styles from "./dailyweather.module.scss";
 const cx = classNames.bind(styles);
-import weatherCode from "../../../utils/renderIcon";
 function DailyWeather({data}) {
   
     const time = new Time(data.time);

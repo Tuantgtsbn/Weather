@@ -293,9 +293,6 @@ function Currency() {
         fetchCurrency();
         setNowOfCurrency(new Date());
     };
-    useEffect(() => {
-        document.title = 'Tỷ giá tiền tệ';
-    }, []);
     return (
         <>
             <div className={classNames(styles.heading)}>
