@@ -29,9 +29,6 @@ function CountUpTimer() {
         setIsRunning(false);
     };
     useEffect(() => {
-        document.title = 'Đồng hồ đếm giờ';
-    }, []);
-    useEffect(() => {
         if (isRunning) {
             timerRef.current = setInterval(() => {
                 setTime((prevTime) => prevTime + 1);

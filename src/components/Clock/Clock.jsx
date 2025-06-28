@@ -112,9 +112,6 @@ function Clock() {
             clearInterval(interval);
         };
     }, [timeZone]);
-    useEffect(() => {
-        document.title = 'Đồng hồ thế giới';
-    }, []);
     const handleChangeTimeZone = (timeZone) => {
         setTimeZone(timeZone);
     };

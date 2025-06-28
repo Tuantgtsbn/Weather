@@ -1,5 +1,4 @@
-import { useEffect, useState } from 'react';
-import classNames from 'classnames/bind';
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import CaroSVG from '@/assets/images/CaroLogo.png';
 import {
@@ -28,10 +27,6 @@ function Caro() {
     const [sizeBoard, setSizeBoard] = useState('10');
     const [screen, setScreen] = useState('menu');
     const [loading, setLoading] = useState(false);
-
-    useEffect(() => {
-        document.title = 'Trò chơi Caro';
-    }, []);
 
     const handleClickStartGame = () => {
         setLoading(true);

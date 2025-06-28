@@ -77,7 +77,6 @@ function Weather() {
     };
 
     useEffect(() => {
-        document.title = 'Thời tiết';
         callApi();
     }, [search]);
     const changeCity = () => {

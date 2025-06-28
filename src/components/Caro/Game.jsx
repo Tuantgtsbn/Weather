@@ -1,8 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Input } from '../ui/input';
 import TableCaro from './TableCaro';
-import { Button } from '../ui/button';
-import { SquarePen } from 'lucide-react';
 import useCaroGame from '@/hooks/useCaroGane';
 import {
     AlertDialog,

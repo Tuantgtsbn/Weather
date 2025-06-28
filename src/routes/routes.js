@@ -4,9 +4,10 @@ const CountUpTimer = lazy(() => import('../components/CountUp/CountUpTimer'));
 const CountDown = lazy(() => import('../components/CountDown/CountDown'));
 const Clock = lazy(() => import('../components/Clock/Clock'));
 const Weather = lazy(() => import('../components/Weather'));
-const Calculator = lazy(() => import('../pages/calculator'));
-const Currency = lazy(() => import('../pages/currency'));
+const Calculator = lazy(() => import('../pages/Calculator'));
+const Currency = lazy(() => import('../pages/Currency'));
 const Caro = lazy(() => import('../pages/Caro'));
+const WheelRandomPage = lazy(() => import('../pages/WheelRandom'));
 const publicRoutes = [
     {
         path: '/timer',
@@ -49,6 +50,12 @@ const publicRoutes = [
         component: Caro,
         layout: DefaultLayout,
         title: 'Trò chơi caro'
+    },
+    {
+        path: '/wheel-random',
+        component: WheelRandomPage,
+        layout: DefaultLayout,
+        title: 'Xoay ngẫu nhiên'
     }
 ];
 const privateRoutes = [];
