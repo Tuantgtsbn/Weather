@@ -6,7 +6,7 @@ class Time {
         const date = this.date.getDate();
         const month = this.date.getMonth() + 1;
         const year = this.date.getFullYear();
-        return `${date}/${month}/${year}`;
+        return `${date.toString().padStart(2, '0')}/${month.toString().padStart(2, '0')}/${year.toString().padStart(2, '0')}`;
     }
     getHour() {
         return this.date.getHours();
@@ -18,7 +18,7 @@ class Time {
     getHourMinute() {
         const hour = this.date.getHours();
         const minute = this.date.getMinutes();
-        return `${hour}:${minute}`;
+        return `${hour.toString().padStart(2, '0')}:${minute.toString().padStart(2, '0')}`;
     }
 }
 

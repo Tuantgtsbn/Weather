@@ -19,7 +19,7 @@ import {
     SelectTrigger,
     SelectValue
 } from '@/components/ui/select';
-import GameCaro from '@/components/Caro/Game';
+import GameCaro from '@/pages/Caro/components/Game';
 
 function Caro() {
     const [openModalSetting, setOpenModalSetting] = useState(false);

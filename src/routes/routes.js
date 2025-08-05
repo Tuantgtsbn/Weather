@@ -1,13 +1,15 @@
 import { lazy } from 'react';
 const DefaultLayout = lazy(() => import('../layouts/DefaultLayout'));
-const CountUpTimer = lazy(() => import('../components/CountUp/CountUpTimer'));
-const CountDown = lazy(() => import('../components/CountDown/CountDown'));
-const Clock = lazy(() => import('../components/Clock/Clock'));
-const Weather = lazy(() => import('../components/Weather'));
+const CountUpTimer = lazy(() => import('../pages/CoutUpTimer'));
+const CountDown = lazy(() => import('../pages/CoutDownTimer'));
+const Clock = lazy(() => import('../pages/Clock'));
+const Weather = lazy(() => import('../pages/Weather'));
 const Calculator = lazy(() => import('../pages/Calculator'));
 const Currency = lazy(() => import('../pages/Currency'));
 const Caro = lazy(() => import('../pages/Caro'));
 const WheelRandomPage = lazy(() => import('../pages/WheelRandom'));
+const TypeWord = lazy(() => import('../pages/TypeWord'));
+
 const publicRoutes = [
     {
         path: '/timer',
@@ -56,7 +58,14 @@ const publicRoutes = [
         component: WheelRandomPage,
         layout: DefaultLayout,
         title: 'Xoay ngẫu nhiên'
+    },
+    {
+        path: '/type-word',
+        component: TypeWord,
+        layout: DefaultLayout,
+        title: 'Luyện gõ 10 ngón'
     }
 ];
+
 const privateRoutes = [];
 export { publicRoutes, privateRoutes };

@@ -1,7 +1,7 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import TabAddPerson from '@/components/Wheel/TabAddPerson';
-import TabSetting from '@/components/Wheel/TabSetting';
-import Wheel from '@/components/Wheel/Wheel';
+import TabAddPerson from '@/pages/WheelRandom/components/TabAddPerson';
+import TabSetting from '@/pages/WheelRandom/components/TabSetting';
+import Wheel from '@/pages/WheelRandom/components/Wheel';
 import { useEffect, useMemo, useState } from 'react';
 import {
     Dialog,

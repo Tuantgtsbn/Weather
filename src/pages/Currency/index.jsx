@@ -8,10 +8,9 @@ import axiosCurrency from '../../api/axiosCurrency';
 import axiosGold from '../../api/axiosGold';
 // import Table from '../../components/Currency/Table/Table';
 import { formatBigNumber } from '../../utils/formatNumber';
-import ExchangeCurrency from '../../components/Currency/ExchangeCurrency/ExchangeCurrency';
+import ExchangeCurrency from './components/ExchangeCurrency/ExchangeCurrency';
 import { RotateCw } from 'lucide-react';
 const parseDataGold = (data) => {
-    console.log('data in function parse', data);
     const newArr = [];
     data.map((item) => {
         const obj = {};
@@ -113,7 +112,6 @@ const parseDataGold = (data) => {
             );
         }
         newArr.push(obj);
-        console.log('newArr', newArr[0]);
     });
     return [...newArr];
 };
@@ -247,7 +245,6 @@ function Currency() {
         } catch (error) {
             console.log('Loi khi goi du lieu gold');
         } finally {
-            console.log('tmp', tmp);
             setLoadingGold(false);
             dataGoldCopy.current = parseDataGold(tmp);
         }

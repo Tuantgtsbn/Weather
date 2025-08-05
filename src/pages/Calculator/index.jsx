@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import ButtonCalculator from '../../components/Calculator/Button';
+import ButtonCalculator from './components/Button';
 import styles from './Calculator.module.scss';
 import classNames from 'classnames';
 import { evaluate } from 'mathjs';

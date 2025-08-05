@@ -1,0 +1,38 @@
+@font-face {
+    font-family: 'Digital-7';
+    src: url('../../assets/fonts/Digital-7.ttf') format('truetype');
+}
+
+.group_btn {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 24px;
+    gap: 1rem;
+}
+
+.list_data {
+    margin-top: 24px;
+}
+.circle {
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.circle_title {
+    font-size: 30px;
+}
+@media screen and (max-width: 576px) {
+    .circle {
+        .circle_title {
+            font-size: 20px;
+        }
+    }
+}
+@media screen and (max-width: 767px) {
+    .circle {
+        width: 80%;
+        .circle_title {
+            font-size: 25px;
+        }
+    }
+}

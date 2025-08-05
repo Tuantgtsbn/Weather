@@ -1,0 +1,28 @@
+import { useState } from 'react';
+import ChoicesCountDown from './components/ChoicesCountDown';
+import CountDownTimer from './components/CountDownTimer';
+import { changeToSeconds } from '../../utils';
+function CountDown() {
+    const [time, setTime] = useState({
+        hours: 0,
+        minutes: 0,
+        seconds: 0
+    });
+    const [isStart, setIsStart] = useState(false);
+
+    return (
+        <div>
+            {!isStart ? (
+                <ChoicesCountDown time={time} setTime={setTime} setIsStart={setIsStart} />
+            ) : (
+                <CountDownTimer
+                    initialState={changeToSeconds(time)}
+                    setIsStart={setIsStart}
+                    setTime={setTime}
+                />
+            )}
+        </div>
+    );
+}
+
+export default CountDown;

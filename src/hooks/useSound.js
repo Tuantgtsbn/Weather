@@ -7,7 +7,7 @@ export function useSound(path, duration, loop = true) {
         audioRef.current.loop = loop;
         return () => {
             audioRef.current.pause();
-            audioRef.current.currentTime = 0;
+            audioRef.current = null;
         };
     }, []);
     const playSound = () => {
@@ -19,7 +19,6 @@ export function useSound(path, duration, loop = true) {
     };
     const pauseSound = () => {
         audioRef.current.pause();
-        audioRef.current.currentTime = 0;
     };
     return { playSound, pauseSound };
 }

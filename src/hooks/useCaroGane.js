@@ -30,26 +30,6 @@ export default function useCaroGame(sizeBoard, typeGame) {
         gameInstance.resultWin = resultWin;
     }, [board, player, winner, draw, resultWin, gameInstance]);
 
-    const checkWin = useCallback(
-        (x, y) => {
-            const result = gameInstance.checkWin(x, y);
-            if (result) {
-                setResultWin({ ...gameInstance.resultWin });
-                setWinner(player);
-            }
-            return result;
-        },
-        [gameInstance, player]
-    );
-
-    const checkDraw = useCallback(() => {
-        const result = gameInstance.checkDraw();
-        if (result) {
-            setDraw(true);
-        }
-        return result;
-    }, [gameInstance]);
-
     const makeComputerMove = useCallback(async () => {
         if (typeGame === '1vsCPU' && player === computer && !winner && !draw) {
             await delay(1000); // Reduced delay for better UX
@@ -57,11 +37,9 @@ export default function useCaroGame(sizeBoard, typeGame) {
             if (firstMoveOfComputer) {
                 i = Math.floor(sizeBoard / 2);
                 j = Math.floor(sizeBoard / 2);
-                console.log('First move of computer', [i, j]);
                 setFirstMoveOfComputer(false);
             } else {
                 [i, j] = gameInstance.getPointsComputer();
-                console.log('Next move of computer', [i, j]);
             }
 
             const newBoard = [...board];

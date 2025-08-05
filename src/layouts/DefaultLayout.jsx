@@ -1,4 +1,4 @@
-import Header from '../components/Header/Header';
+import Header from '../components/Header';
 import PropTypes from 'prop-types';
 import styles from './DefaultLayout.module.scss';
 import useTheme from '../hooks/useTheme';
