@@ -1,25 +1,28 @@
 import { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import styles from './DropDown.module.scss';
 import classNames from 'classnames/bind';
 import PropTypes from 'prop-types';
 import { Menu } from 'lucide-react';
 const cx = classNames.bind(styles);
-function DropDown({ options, onSelect }) {
+function DropDown({ options }) {
     const [isOpen, setIsOpen] = useState(false);
-    const [selectedOption, setSelectedOption] = useState(null);
     const dropdownRef = useRef(null);
+    const { pathname } = useLocation();
+
     const handleClickOutside = (event) => {
         if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
             setIsOpen(false);
         }
     };
+
     useEffect(() => {
         document.addEventListener('mousedown', handleClickOutside);
         return () => {
             document.removeEventListener('mousedown', handleClickOutside);
         };
     }, []);
+
     return (
         <div className={cx('dropdown')} ref={dropdownRef}>
             <button className={cx('dropdown_button')} onClick={() => setIsOpen(!isOpen)}>
@@ -31,13 +34,11 @@ function DropDown({ options, onSelect }) {
                         <Link
                             key={index}
                             onClick={() => {
-                                setSelectedOption(option);
-                                onSelect(option);
                                 setIsOpen(false);
                             }}
                             to={option.path}
                             className={cx('dropdown_item', {
-                                'dropdown_item--selected': selectedOption === option
+                                'dropdown_item--selected': option.path.includes(pathname)
                             })}
                         >
                             {option.label}
@@ -49,7 +50,6 @@ function DropDown({ options, onSelect }) {
     );
 }
 DropDown.propTypes = {
-    options: PropTypes.array.isRequired,
-    onSelect: PropTypes.func.isRequired
+    options: PropTypes.array.isRequired
 };
 export default DropDown;

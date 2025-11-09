@@ -1,21 +1,22 @@
-import Time from '../../../../utils/changeTimeUTC';
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 import styles from './dailyweather.module.scss';
+import { DateTime } from 'luxon';
 const cx = classNames.bind(styles);
+
 function DailyWeather({ data }) {
-    const time = new Time(data.time);
+    const time = DateTime.fromISO(data.time.time).setZone(data.time.name).setLocale('en');
     var dayOfWeek = null;
-    if (time.date.getDate() === new Date().getDate()) {
+    if (time.toISODate() === DateTime.now().setZone(data.time.name).toISODate()) {
         dayOfWeek = 'Today';
     } else {
-        dayOfWeek = time.getDayOfWeek().substring(0, 3);
+        dayOfWeek = time.weekdayShort;
     }
-    const temperatureMax = data.values.temperatureMax.toFixed(1);
-    const temperatureMin = data.values.temperatureMin.toFixed(1);
+    const temperatureMax = data.temperatureMax.toFixed(1);
+    const temperatureMin = data.temperatureMin.toFixed(1);
     const value = {
         day: dayOfWeek,
-        icon: data.values.weatherCodeMax + '0',
+        icon: data.weatherCode + '0',
         temp: `${temperatureMax}/${temperatureMin}`
     };
 

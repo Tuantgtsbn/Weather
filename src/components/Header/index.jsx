@@ -3,8 +3,10 @@ import styles from './Header.module.scss';
 import DropDown from '../DropDown';
 import SwitchThemeButton from '../SwitchThemeButton';
 import { useMemo } from 'react';
-const cx = classNames.bind(styles);
 import useTheme from '../../hooks/useTheme';
+import PropTypes from 'prop-types';
+const cx = classNames.bind(styles);
+
 function Header({ title }) {
     const options = useMemo(
         () => [
@@ -27,17 +29,22 @@ function Header({ title }) {
         []
     );
     const [theme] = useTheme();
+
     return (
         <header
             className={cx('navbar', {
                 dark: theme === 'dark'
             })}
         >
-            <DropDown options={options} onSelect={() => {}} />
+            <DropDown options={options} />
             <h1 className={cx('title')}>{title}</h1>
             <SwitchThemeButton />
         </header>
     );
 }
+
+Header.propTypes = {
+    title: PropTypes.string.isRequired
+};
 
 export default Header;

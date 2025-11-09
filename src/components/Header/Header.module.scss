@@ -12,8 +12,14 @@
     flex: 2;
     text-align: center;
     margin: 0;
+    color: black;
 }
 
-.dark {
-    color: v.$dark-primary-text-color;
+body[data-theme='dark'] {
+    .dark {
+        color: v.$dark-primary-text-color;
+    }
+    .title {
+        color: white;
+    }
 }

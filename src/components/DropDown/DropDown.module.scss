@@ -31,6 +31,9 @@
     margin-top: 12px;
     background-color: #efefef;
     border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
 .dropdown_item {
@@ -45,7 +48,7 @@
 }
 
 .dropdown_item--selected {
-    background-color: #d6eaff;
+    background-color: #ccc;
 }
 
 body[data-theme='dark'] {
