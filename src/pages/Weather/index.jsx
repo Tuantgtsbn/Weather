@@ -6,9 +6,20 @@ import styles from './weather.module.scss';
 import classNames from 'classnames/bind';
 const cx = classNames.bind(styles);
 import NumberFormat from '../../utils/formatNumber';
-import { CloudHail, Droplet, Eye, RotateCw, Search, Sun, Thermometer, Wind } from 'lucide-react';
+import {
+    CloudHail,
+    Droplet,
+    Eye,
+    Info,
+    RotateCw,
+    Search,
+    Sun,
+    Thermometer,
+    Wind
+} from 'lucide-react';
 import { toast } from 'react-toastify';
 import { Skeleton } from '@/components/ui/skeleton';
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 const apiKeyGeocode = import.meta.env.VITE_API_KEY_OPENCAGEDATA;
 const apiKeyTomorrow = import.meta.env.VITE_API_KEY_TOMORROW;
 
@@ -194,13 +205,23 @@ function Weather() {
             {weatherData?.current ? (
                 <div className={cx('currentweather')}>
                     <div className={cx('left')}>
-                        <p className={cx('city, line-clamp-2')}>
-                            {search || weatherData?.address?.address}
-                        </p>
+                        <div className='flex items-center flex-wrap gap-2 relative pr-[30px]'>
+                            <p className={cx('city', 'line-clamp-2')}>
+                                {search || weatherData?.address?.address}
+                            </p>
+                            <span className='absolute right-0 top-[15px]'>
+                                <Popover>
+                                    <PopoverTrigger>
+                                        <Info size={16} />
+                                    </PopoverTrigger>
+                                    <PopoverContent>{weatherData?.address?.address}</PopoverContent>
+                                </Popover>
+                            </span>
+                        </div>
                         <p className={cx('temperature')}>
                             {NumberFormat(weatherData.current.values.temperature)}℃
                         </p>
-                        <div className='flex items-center gap-2 flex-row flex-wrap'>
+                        <div>
                             <p className={cx('lastUpdated')}>
                                 <span>Last updated: </span>
                                 {`${new Date(
@@ -210,13 +231,11 @@ function Weather() {
                                     .toISOString()
                                     .slice(11, 16)} 
                                 (UTC${weatherData.address.timezone.offset_string})`}
+                                <RotateCw
+                                    className='hover:cursor-pointer inline-block ml-[10px]'
+                                    onClick={() => getDataWeatherSearchPosition(search)}
+                                />
                             </p>
-                            <div
-                                onClick={() => getDataWeatherSearchPosition(search)}
-                                className={cx('reload hover:cursor-pointer')}
-                            >
-                                <RotateCw />
-                            </div>
                         </div>
                     </div>
 
