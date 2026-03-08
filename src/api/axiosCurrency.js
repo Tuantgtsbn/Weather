@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const axiosCurrency = axios.create({
-    baseURL: 'https://vapi.vnappmob.com/api/v2/exchange_rate',
+    baseURL: 'https://api.vnappmob.com/api/v2/exchange_rate',
     timeout: 10000,
     headers: {
         'Content-Type': 'application/json'
@@ -33,7 +33,7 @@ axiosCurrency.interceptors.response.use(
             originalRequest._retry = true;
             try {
                 const res = await axios.get(
-                    'https://vapi.vnappmob.com/api/request_api_key?scope=exchange_rate'
+                    'https://api.vnappmob.com/api/request_api_key?scope=exchange_rate'
                 );
                 const tokenCurrency = res.data.results;
                 if (tokenCurrency) {

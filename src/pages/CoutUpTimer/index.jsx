@@ -90,7 +90,6 @@ function CountUpTimer() {
                 {<Results datas={results} />}
             </div>
             <div className={cx('group_btn')}>
-                <Button className='btn_export'>Xuất file CSV</Button>
                 <Button className='btn_delete' onClick={handleDeleteResults}>
                     Xóa dữ liệu
                 </Button>
