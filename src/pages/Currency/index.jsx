@@ -17,7 +17,7 @@ const parseDataGold = (data) => {
         if (item.brand === 'SJC') {
             obj.brand = 'SJC';
             obj.data = [];
-            obj.lastUpdated = item.data[0].datetime;
+            obj.lastUpdated = item.data[0]?.datetime;
 
             obj.data.push(
                 {
@@ -53,7 +53,7 @@ const parseDataGold = (data) => {
             );
         } else if (item.brand === 'PNJ') {
             obj.brand = 'PNJ';
-            obj.lastUpdated = item.data[0].datetime;
+            obj.lastUpdated = item.data[0]?.datetime;
             obj.data = [];
 
             obj.data.push(
@@ -85,7 +85,7 @@ const parseDataGold = (data) => {
             );
         } else if (item.brand === 'DOJI') {
             obj.brand = 'DOJI';
-            obj.lastUpdated = item.data[0].datetime;
+            obj.lastUpdated = item.data[0]?.datetime;
             obj.data = [];
 
             obj.data.push(
@@ -192,6 +192,8 @@ function Currency() {
     const [loadingCurrency, setLoadingCurrency] = useState(false);
     const dataGoldCopy = useRef([]);
     const dataCurrencyCopy = useRef([]);
+    console.log('datagold', dataGoldCopy.current);
+    console.log('dataCurrency', dataCurrencyCopy.current);
     const listGoldBrand = useMemo(
         () => [
             {
@@ -212,8 +214,8 @@ function Currency() {
     const listCurrencyBrand = useMemo(
         () => [
             {
-                brand: 'Vietcombank (VCB)',
-                path: 'vcb'
+                brand: 'Techcombank (TCB)',
+                path: 'tcb'
             }
         ],
         []

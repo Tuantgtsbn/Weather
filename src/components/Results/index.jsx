@@ -17,7 +17,7 @@ function Results({ datas = [] }) {
                                 <th>#</th>
                                 <th>Thời gian bắt đầu</th>
                                 <th>Thời gian kết thúc</th>
-                                <th>Kéo dài</th>
+                                <th>Kéo dài (s)</th>
                             </tr>
                         </thead>
                         <tbody>
